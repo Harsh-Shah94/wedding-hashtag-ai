@@ -1,12 +1,16 @@
+BASIC_STOPWORDS = {
+    "the", "and", "is", "in", "to", "of", "for", "on", "with", "a", "an",
+    "from", "by", "at", "this", "that", "it", "as", "are", "was", "were"
+}
+
 import re
 from collections import Counter
-from nltk.corpus import stopwords
 
 def rule_hashtags(text, top_n=5):
     text = text.lower()
     text = re.sub(r'[^a-zA-Z\s]', '', text)
     words = text.split()
-    words = [w for w in words if w not in stopwords.words('english')]
+    words = [w for w in words if w not in BASIC_STOPWORDS]
     common = Counter(words).most_common(top_n)
     return ["#" + word.capitalize() for word, _ in common]
 
