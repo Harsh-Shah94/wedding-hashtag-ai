@@ -75,12 +75,33 @@
 
     <input type="text" name="groom_city" placeholder="Groom City"
        value="{{ groom_city }}">
+    
+    <label>How did you meet?</label>
+    <select name="meet_type">
+       <option value="">Select</option>
+       <option value="dating app">Dating App</option>
+       <option value="college">School / College</option>
+       <option value="family">Family / Arranged</option>
+       <option value="long distance">Long Distance</option>
+       <option value="workplace">Workplace</option>
+    </select>
+    
+    <label>Wedding vibe</label>
+    <select name="vibe">
+       <option value="">Select</option>
+       <option value="royal">Royal</option>
+       <option value="filmy">Filmy / Bollywood</option>
+       <option value="fun">Fun & Playful</option>
+       <option value="minimal">Minimal / Modern</option>
+       <option value="traditional">Traditional</option>
+    </select>
+
 
     <input type="text" name="wedding_city" placeholder="Wedding City"
        value="{{ wedding_city }}">
 
     <textarea name="story" rows="2"
-          placeholder="Couple story (optional)">{{ story }}</textarea>
+          placeholder="Couple story,Cultural Backgrounds etc (optional)">{{ story }}</textarea>
 
     <label style="margin-top:10px; display:block;">
         <input type="checkbox" name="use_emojis"

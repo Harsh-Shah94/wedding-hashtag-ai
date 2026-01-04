@@ -29,6 +29,8 @@ def index():
         groom_name = request.form.get("groom_name", "")
         bride_city = request.form.get("bride_city", "")
         groom_city = request.form.get("groom_city", "")
+        meet_type = request.form.get("meet_type", "")
+        vibe = request.form.get("vibe", "")
         wedding_city = request.form.get("wedding_city", "")
         story = request.form.get("story", "")
         action = request.form.get("action", "generate")
@@ -54,7 +56,7 @@ def index():
             bride_city,
             groom_city,
             wedding_city,
-            story,
+            story=f"{story}.Met via: {meet_type}. Vibe: {vibe}",
             tone="fun"
         )
 
@@ -72,6 +74,8 @@ def index():
         groom_name=groom_name,
         bride_city=bride_city,
         groom_city=groom_city,
+        meet_type=meet_type if request.method == "POST" else "",
+        vibe=vibe if request.method == "POST" else "",
         wedding_city=wedding_city,
         story=story,
         use_emojis=use_emojis
