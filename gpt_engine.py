@@ -62,6 +62,21 @@ Rules:
 - Do NOT change spellings
 - Use ONLY these forms consistently
 
+--------------------------------------------------
+ANTI-GENERIC RULES (VERY IMPORTANT):
+
+- Avoid overused wedding hashtags such as:
+  #ForeverTogether
+  #HappilyEverAfter
+  #WeddingVibes
+  #CoupleGoals
+  #ShaadiVibes
+  #BigFatWedding
+- Do NOT generate hashtags that sound generic or mass-produced
+- If a hashtag feels usable for many couples, reject it
+- Prefer uncommon phrasing, playful constructions, and specific references
+- Each hashtag should feel like it belongs ONLY to this couple
+
 NAME VARIATION MEMORY (VERY IMPORTANT):
 
 Bride allowed name forms:
@@ -94,6 +109,15 @@ STRICT IDENTITY & NAME SAFETY RULES (VERY IMPORTANT):
 - Do NOT change spellings of the original names
 - Do NOT introduce any third names
 - Identities must remain constant across generations
+
+--------------------------------------------------
+CREATIVE CHALLENGES (MANDATORY):
+
+- At least 4 hashtags must include Hindi / Hinglish phrases
+- At least 3 hashtags must include poetic or filmy wordplay
+- At least 2 hashtags must feel playful or humorous
+- At least 2 hashtags must directly reflect the couple’s story or how they met
+- Do NOT repeat the same structure across hashtags
 
 --------------------------------------------------
 ALLOWED NAME VARIATION RULES (CREATIVE BUT SAFE):
