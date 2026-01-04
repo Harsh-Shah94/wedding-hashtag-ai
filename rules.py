@@ -1,3 +1,8 @@
+GENERIC_WORDS = {
+    "wedding", "forever", "together", "love",
+    "shaadi", "couple", "vibes", "marriage"
+}
+
 BASIC_STOPWORDS = {
     "the", "and", "is", "in", "to", "of", "for", "on", "with", "a", "an",
     "from", "by", "at", "this", "that", "it", "as", "are", "was", "were"
@@ -133,4 +138,51 @@ def add_emojis(hashtags, max_emojis=5):
             enhanced.append(tag)
 
     return enhanced
+
+def filter_boring_hashtags(hashtags):
+    """
+    Light cleanup only:
+    - remove duplicates
+    - remove extremely short junk
+    """
+    cleaned = []
+
+    for tag in hashtags:
+        if len(tag) < 6:
+            continue
+        cleaned.append(tag)
+
+    return cleaned
+
+def score_hashtag(tag, bride_name, groom_name):
+    score = 0
+    tag_lower = tag.lower()
+
+    # Name presence
+    if bride_name.lower() in tag_lower:
+        score += 3
+    if groom_name.lower() in tag_lower:
+        score += 3
+
+    # Hinglish / Hindi signals
+    for word in ["shaadi", "mandap", "pyaar", "naina", "rishta", "kahani"]:
+        if word in tag_lower:
+            score += 2
+
+    # Length sweet spot
+    if 12 <= len(tag) <= 25:
+        score += 1
+
+    return score
+
+def rank_hashtags(hashtags, bride_name, groom_name):
+    scored = []
+
+    for tag in hashtags:
+        scored.append((tag, score_hashtag(tag, bride_name, groom_name)))
+
+    # Sort by score (highest first)
+    scored.sort(key=lambda x: x[1], reverse=True)
+
+    return [tag for tag, score in scored]
 

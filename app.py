@@ -4,7 +4,9 @@ from rules import (
     story_based_hashtags,
     location_based_hashtags,
     clean_hashtags,
-    add_emojis
+    add_emojis,
+    filter_boring_hashtags,
+    rank_hashtags
 )
 from gpt_engine import gpt_hashtags
 
@@ -60,12 +62,22 @@ def index():
             tone="fun"
         )
 
-        # Merge, deduplicate, clean
+        # Merge sources
         raw_hashtags = location_tags + story_tags + rule_tags + (gpt_tags or [])
+
+        # Deduplicate & basic clean
         cleaned = clean_hashtags(list(dict.fromkeys(raw_hashtags)))
 
-        # Apply emoji toggle
-        hashtags = add_emojis(cleaned) if use_emojis else cleaned
+        # Light filter only
+        filtered = filter_boring_hashtags(cleaned)
+
+        # Rank by quality
+        ranked = rank_hashtags(filtered, bride_name, groom_name)
+
+        # Final output (limit but not starve)
+        final_hashtags = ranked[:15]
+
+        hashtags = add_emojis(final_hashtags) if use_emojis else final_hashtags
 
     return render_template(
         "index.html",
